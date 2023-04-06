@@ -1,5 +1,12 @@
 package ru.netology;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Radio {
     private int currentStationNumber;
     private int maxRadioStation = 9;
@@ -8,34 +15,8 @@ public class Radio {
     private int maxVolume = 100;
     private int minVolume = 0;
 
-    public int getCurrentStationNumber() {
-        return currentStationNumber;
-    }
-
-    public void setCurrentStationNumber(int currentStationNumber) {
-        if (currentStationNumber < minRadioStation) {
-            return;
-        }
-        if (currentStationNumber > maxRadioStation) {
-            return;
-        }
-        this.currentStationNumber = currentStationNumber;
-    }
-
-    public int getMaxRadioStation() {
-        return maxRadioStation;
-    }
-
-    public void setMaxRadioStation(int maxRadioStation) {
-        this.maxRadioStation = maxRadioStation;
-    }
-
-    public int getMinRadioStation() {
-        return minRadioStation;
-    }
-
-    public void setMinRadioStation(int minRadioStation) {
-        this.minRadioStation = minRadioStation;
+    public Radio(int quantity) {
+        this.currentStationNumber = quantity - 1;
     }
 
     public void pressNextStation() {
@@ -54,33 +35,11 @@ public class Radio {
         }
     }
 
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
-
-    public void setCurrentVolume(int currentVolume) {
-        if (currentVolume > maxVolume) {
-            return;
-        }
-        if (currentVolume < minVolume) {
-            return;
-        }
-        this.currentVolume = currentVolume;
-    }
-
-    public int getMaxVolume() {
-        return maxVolume;
-    }
-
-    public void setMaxVolume(int maxVolume) {
-        this.maxVolume = maxVolume;
-    }
-
     public int getMinVolume() {
         return minVolume;
     }
 
-    public void setMinVolume(int minVolume) {
+    public void setMinVolume() {
         this.minVolume = minVolume;
     }
 
@@ -93,6 +52,5 @@ public class Radio {
 
         setCurrentVolume(currentVolume - 1);
     }
-
 
 }

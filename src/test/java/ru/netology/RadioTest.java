@@ -7,6 +7,14 @@ import org.junit.jupiter.api.Test;
 public class RadioTest {
 
     @Test
+    public void maxNumberRadioStationsByQuantity() {
+        Radio radio = new Radio(34);
+        int expected = 33;
+        int actual = radio.getCurrentStationNumber();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void selectNumberCurrentStation() {
         Radio radio = new Radio();
         radio.setCurrentStationNumber(8);
